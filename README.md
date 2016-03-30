@@ -82,7 +82,7 @@ I hope this repository helped you better understand what sockets are. If somethi
 
 # My other projects
 
-- [Simpe.li](https://simpe.li) which is a simple API for generating PDFs out of beautiful templates.
-- [IoT Water Flow Meter](https://www.hackster.io/davidgatti/iot-water-flow-meter-4595ff?ref=user&ref_id=6416&offset=0)
-- [IoT Garage Opener](https://www.hackster.io/davidgatti/garage-opener-591175?ref=user&ref_id=6416&offset=1)
-- [dgCam for Android](https://github.com/davidgatti/dgCam)
+- [Simpe.li](https://simpe.li): which is a simple API for generating PDFs out of beautiful templates.
+- [IoT Water Flow Meter](https://www.hackster.io/davidgatti/iot-water-flow-meter-4595ff?ref=user&ref_id=6416&offset=0): Measure the water consumption in your house with a Particle and water flow sensors.
+- [IoT Garage Opener](https://www.hackster.io/davidgatti/garage-opener-591175?ref=user&ref_id=6416&offset=1): A non destructive basic garage opener
+- [dgCam for Android](https://github.com/davidgatti/dgCam): Custom camera for Android created for testing, playing and learning.
