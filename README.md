@@ -80,6 +80,9 @@ In this case again, the `,` separates your set of data, where the `:` differenti
 
 I hope this repository helped you better understand what sockets are. If something was unclear, hit me up on [Twitter](https://twitter.com/dawidgatti), I’ll try to fix the unclear part of this project.
 
-# Small Request
+# My other projects
 
-If you have a spare moment. I would like to invite you to visit my other project called [Simpe.li](https://simpe.li).
+- [Simpe.li](https://simpe.li) which is a simple API for generating PDFs out of beautiful templates.
+- [IoT Water Flow Meter](https://www.hackster.io/davidgatti/iot-water-flow-meter-4595ff?ref=user&ref_id=6416&offset=0)
+- [IoT Garage Opener](https://www.hackster.io/davidgatti/garage-opener-591175?ref=user&ref_id=6416&offset=1)
+- [dgCam for Android](https://github.com/davidgatti/dgCam)
