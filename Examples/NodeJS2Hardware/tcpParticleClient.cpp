@@ -64,23 +64,24 @@ void loop() {
 void pData(char* data) {
 
     // Print out each char that we get
-    Serial.printf("%d\n", char2int(data));
+    Serial.printf("%d\n", string2int(data));
 
     // Set the value to the LED
-    analogWrite(led, char2int(data));
+    analogWrite(led, string2int(data));
 
 }
 
 // Convert an array of characters in to an int
-int char2int(const char *s) {
+int string2int(const char *s) {
 
     int res = 0;
 
     while (*s) {
 
         res *= 10;
-        res += *s++ - '0';
-
+        res += *s - '0';
+        *s++
+        
     }
 
     return res;
