@@ -26,9 +26,12 @@ void setup() {
 
 void loop() {
 
-    byte val = analogRead(analogPin);
-    Serial.println(val);
+    int val = analogRead(analogPin);
+
     client.print(val);
+    client.print(',');
+
+    Serial.println(val);
 
     delay(100);
 

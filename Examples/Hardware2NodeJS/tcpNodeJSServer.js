@@ -14,7 +14,7 @@ let server = net.createServer(function(socket) {
 		console.log('Received: %s [it is %d bytes long]', data, data.length);
 
 	});
-    
+
     // Display error message
     socket.on('error', function(err) {
 
