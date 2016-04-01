@@ -60,13 +60,36 @@ Hard to believe? Use a telnet app an connect to your favorite site using this co
 - `GET / HTTP/1.1`
 - then press enter twice. You’ll get the page.
 
+For secure connection you can use `openssl` in the following way:
+
+- openssl s_client -connect google.com:443
+- *admier all the security that is going on*
+- `GET / HTTP/1.1`
+- then press enter twice. You’ll get the page.
+
+Another example would be to send an email by connecting straight to a SMTP server. Now days most SMTP servers are secured by passwords, and use encryption which makes it hard to quickly test this. But if you had access to a plain SMTP server you could just type the following:
+
+- `telnet example.com smtp`
+- and type
+- `HELO client.example.com`
+- `MAIL from: <sender@example.com>`
+- `RCPT to: <recipient@example.com>`
+- `DATA`
+- `From: sender@example.com`
+- `To: recipient@example.com`
+- `Subject: Test message`
+- *empty space*
+- This is my awesome message
+- . *just a single dot to tel the server we finished our message*
+- `QUIT`
+
 # How to Make Your Own Rules (protocol)
 
 Now that we have a better understanding of Sockets. You’ll need to design a common structure for communicating. Lets say you want to send to your NodeJS server the temperature of you house. Your stream of bytes could look like this:
 
 `45,40.1,50,90,100,102.5`
 
-Where the `,` is the separator for each measurement. Meaning on the other end, you need some code that will check for the separator, and when that happens - you know you’v got your temperature.
+Where the `,` is the separator for each measurement. You can choose any character you want, but just so you know, the `,` will make your data compatible with the CSV (Comma Separated Values) format. Anyway, on the other end, you need some code that will check for the separator, and when that happens - you have your value.
 
 As you can see from this example, there is no header, or optional data. You decide what goes in you protocol.
 
@@ -74,7 +97,31 @@ Based on this example above you could add humidity to our protocol like this.
 
 `45:80,40:85,32.1:82,50:89`
 
-In this case again, the `,` separates your set of data, where the `:` differentiate your data set. Remember, protocols need good documentation so other developers can make sense of them.
+In this case again, the `,` separates your set of data, where the `:` differentiate your data set. Remember, protocols need good documentation so other developers can make sense of them. Otherwise others won't be able to tell what is what just by looking ad the raw data.
+
+# Types - meaning: be aware how you send your data.
+
+Computers work in 1 and 0s, and this is a fact. There is no way for example to distinguish a compiled application with regular data. Everything is stored as a series of bits. Meaning even the data that is sent over the internet is in 1 and 0s.
+
+You are probably asking, then why should I care about types. Because depending on your type your binary data will be different. For example: an integer of 1 will be 00000001, where a char of 1 in UTF8 is 31 which will become 00011111.
+
+This means that at the other end of the connection, you need to know what are you getting. Lets say you want to make a simple comparison.
+
+```
+if(data == 1) {
+    true
+}
+```
+
+If you convert your data as if it was an integer but you sent it as a char, then you'll compare int 31 to int 1. But if you know that you are sending a character then you can compare it with the right type:
+
+```
+if(data == '1') {
+    true
+}
+```
+
+Now char 1 is actually 31 and the comparison will work. In the [Example](https://github.com/davidgatti/IoT-Raw-Sockets-Examples/tree/master/Examples) folder you'll find simple code that explains how this works in practice.
 
 # To sum it all up
 

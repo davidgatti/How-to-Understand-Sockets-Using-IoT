@@ -28,6 +28,8 @@ void loop() {
 
     int val = analogRead(analogPin);
 
+    // No type set and the defautl one is char. Mening in this case our Int will
+    // be converted to UTF8
     client.print(val);
     client.print(',');
 

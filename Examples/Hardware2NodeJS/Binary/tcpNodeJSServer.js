@@ -9,9 +9,21 @@ let server = net.createServer(function(socket) {
 
     console.log("Conected");
 
+    // Settign the socket Buffer to be in binary insted of the default UTF8
+    socket.setEncoding('binary');
+
     socket.on('data', function(data) {
 
-		console.log('Received: %s [it is %d bytes long]', data, data.length);
+        // Skipping the separation char
+        if(data != ',') {
+
+            // Converting binary data back to an integer, since we know that the
+            // data thtat we are sendign is in binayr.
+            let integerData = parseInt(data, 2);
+
+            console.log('Received: %s [it is %d bytes long]', integerData, data.length);
+
+        }
 
 	});
 
