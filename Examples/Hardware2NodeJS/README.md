@@ -6,12 +6,20 @@ You can read more about types on the home page of the project.
 
 # Protocol description
 
-Each voltage value is separated by a `,`.
-
-This is an example of the data that will be sent by NodeJS.
+Each value is of type int and converted to binary, while being separated by a `,`, and this is an example of the data that will be sent by Particle to the NodeJS app.
 
 `1,10,50,100,150,183,300,322,1000,50`
 
+Where the:
+
+- values: are sent as integers.
+- separator: is sent as a character.
+
+This means that on other side, in the NodeJS app, if we want to split the string, we will compare the separator to a char symbol. When you’ll check the code, you’ll see what I mean.
+
 # Schematic
+
+    - Particle
+    - Potentiometer (10K in my case)
 
 ![raw sockets led](https://raw.githubusercontent.com/davidgatti/IoT-Raw-Sockets-Examples/assets/raw_sockets_potentiometer.png)

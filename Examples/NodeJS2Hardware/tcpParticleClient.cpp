@@ -38,7 +38,7 @@ void loop() {
         char c = client.read();
 
         // Check if we reached the end of the data
-        if(c == ':') {
+        if(c == ',') {
 
             // use the acumulated value
             pData(tmp);
@@ -81,7 +81,7 @@ int string2int(const char *s) {
         res *= 10;
         res += *s - '0';
         *s++
-        
+
     }
 
     return res;
