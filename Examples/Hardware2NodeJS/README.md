@@ -19,7 +19,7 @@ This means that on other side, in the NodeJS app, if we want to split the string
 
 # Schematic
 
-    - Particle
-    - Potentiometer (10K in my case)
+- Particle
+- Potentiometer (10K in my case)
 
 ![raw sockets led](https://raw.githubusercontent.com/davidgatti/IoT-Raw-Sockets-Examples/assets/raw_sockets_potentiometer.png)
