@@ -129,18 +129,18 @@ On the internets we use two protocols for sending data: TCP and UDP. You'll see 
 
 Since TCP and UDP are protocols, by know you should know that this word means rules, and this two protocols are nothing more then rules explaining how to package data, so the other end witch also understands the same rules, can unpack the received information and vice versa.
 
-## Difference 
+### Difference 
 
 - **TCP**: is a stream of data which will always arrive at the other end no matter what. Because the rules say, if some data will be lost during the transmission, resend them. This way you get high fidelity, "slower" speeds, and more data over all.
 - **UDP**: sends data as a standalone packet, because once the data is sent, there is no way to tell if it reached its destination. The rules here are: I'll send it, but I won't guarantee that you'll receive it. With this protocol you get faster speeds because you are not waisting time resending lost data, and also you are not sending back to the source the information needed to know if something was lost.
 
-## Use cases
+### Use cases
 
 Most of the internet uses TCP because we want the assurance that what we send will be revived on the other end. For example, if you send a document, you don't want letters or words to be missing. Many formats if they'll have missing parts of the header, which tells the system how to understand the file, the system will inform you that the file is corrupted, and can't be read.
 
 Of course there are formats that are more resilient and don't need 100% of the data. Some movies, images, and music formats for example can have parts of its content missing, and you'll live with that. In the case of an image or movie, you'll have some weird artifacts. While in the case of music you'll have some blips and noises.
 
-## When should I use UDP?
+### When should I use UDP?
 
 This protocol is very useful when sending data from hardware products. Lets say we are collecting sensor data from many devices, and we use a cellular modem where we have to pay for each byte we send. In this case we should consider the following: is it worth it to use TCP and pay more for higher fidelity. Or can we accept some lost measurement but pay less for our data transfer?
 
