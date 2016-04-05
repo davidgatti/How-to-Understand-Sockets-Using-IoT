@@ -21,7 +21,7 @@ Especially in embedded systems where every byte counts.
 
 # What are Sockets
 
-Sockets are the foundation for all the network connectivity. Every connected device uses Sockets. On top of Sockets you have protocols, which are noting else then rules. Rules that specify how data should be sent or processed after receiving it. For example: the popular HTTP protocol.
+Sockets are the foundation for all the network connectivity. Every connected device uses Sockets. On top of Sockets you have protocols, which are nothing else other than rules. Rules that specify how data should be sent or processed after receiving it. For example: the popular HTTP protocol.
 
 Knowing this, you can mimic any device with any language that has Socket support. How? By sending bytes that adhere specific protocols (rules). This rules are are freely available on-line.
 
@@ -63,11 +63,11 @@ Hard to believe? Use a telnet app an connect to your favorite site using this co
 For secure connection you can use `openssl` in the following way:
 
 - openssl s_client -connect google.com:443
-- *admier all the security that is going on*
+- *admire all the security that is going on*
 - `GET / HTTP/1.1`
 - then press enter twice. You’ll get the page.
 
-Another example would be to send an email by connecting straight to a SMTP server. Now days most SMTP servers are secured by passwords, and use encryption which makes it hard to quickly test this. But if you had access to a plain SMTP server you could just type the following:
+Another example would be to send an email by connecting straight to a SMTP server. Nowadays most SMTP servers are secured by passwords, and use encryption which makes it hard to quickly test this. But if you had access to a plain SMTP server you could just type the following:
 
 - `telnet example.com smtp`
 - and type
@@ -80,24 +80,24 @@ Another example would be to send an email by connecting straight to a SMTP serve
 - `Subject: Test message`
 - *empty space*
 - This is my awesome message
-- . *just a single dot to tel the server we finished our message*
+- . *just a single dot to tell the server that we finished our message*
 - `QUIT`
 
 # How to Make Your Own Rules (protocol)
 
-Now that we have a better understanding of Sockets. You’ll need to design a common structure for communicating. Lets say you want to send to your NodeJS server the temperature of you house. Your stream of bytes could look like this:
+Now that we have a better understanding of Sockets. You’ll need to design a common structure for communicating. Lets say you want to send to your NodeJS server the temperature of your house. Your stream of bytes could look like this:
 
 `45,40.1,50,90,100,102.5`
 
 Where the `,` is the separator for each measurement. You can choose any character you want, but just so you know, the `,` will make your data compatible with the CSV (Comma Separated Values) format. Anyway, on the other end, you need some code that will check for the separator, and when that happens - you have your value.
 
-As you can see from this example, there is no header, or optional data. You decide what goes in you protocol.
+As you can see from this example, there is no header, or optional data. You decide what goes in your protocol.
 
 Based on this example above you could add humidity to our protocol like this.
 
 `45:80,40:85,32.1:82,50:89`
 
-In this case again, the `,` separates your set of data, where the `:` differentiate your data set. Remember, protocols need good documentation so other developers can make sense of them. Otherwise others won't be able to tell what is what just by looking ad the raw data.
+In this case again, the `,` separates your set of data, where the `:` differentiate your data set. Remember, protocols need good documentation so other developers can make sense of them. Otherwise others won't be able to tell what is what just by looking at the raw data.
 
 # Types - meaning: be aware how you send your data.
 
@@ -125,11 +125,11 @@ Now char 1 is actually 31 and the comparison will work. In the [Example](https:/
 
 # Which one: TCP or UDP?
 
-On the internets we use two protocols for sending data: TCP and UDP. You'll see that people write /IP at the end of the name. IP stands for (Internet Protocol), and in short, you can think of it as the address system of the internet. Meaning you can use TCP or UDP not only on the internet. TCP and UDP are the way the data is packaged, what address system are you going to use is up to you.
+On the internet we use two protocols for sending data: TCP and UDP. You'll see that people write /IP at the end of the name. IP stands for (Internet Protocol), and in short, you can think of it as the address system of the internet. Meaning you can use TCP or UDP not only on the internet. TCP and UDP are the way the data is packaged, what address system are you going to use is up to you.
 
-Since TCP and UDP are protocols, by know you should know that this word means rules, and this two protocols are nothing more then rules explaining how to package data, so the other end witch also understands the same rules, can unpack the received information and vice versa.
+Since TCP and UDP are protocols, by now you should know that this word means rules, and this two protocols are nothing more than rules explaining how to package data, so the other end witch also understands the same rules, can unpack the received information and vice versa.
 
-### Difference 
+### Difference
 
 - **TCP**: is a stream of data which will always arrive at the other end no matter what. Because the rules say, if some data will be lost during the transmission, resend them. This way you get high fidelity, "slower" speeds, and more data over all.
 - **UDP**: sends data as a standalone packet, because once the data is sent, there is no way to tell if it reached its destination. The rules here are: I'll send it, but I won't guarantee that you'll receive it. With this protocol you get faster speeds because you are not waisting time resending lost data, and also you are not sending back to the source the information needed to know if something was lost.
