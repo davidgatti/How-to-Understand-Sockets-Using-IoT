@@ -2,16 +2,11 @@ This example will show you how to stream random values from 1 to 255. This value
 
 # Protocol description
 
-Each value is of type int and converted to binary, while being separated by a `,`, and this is an example of the data that will be sent by Particle to the NodeJS app.
+Each value is separated by a `,`. The example bellow shows the data that will be sent by NodeJS to the Particle.
 
 `1,10,50,100,150,183,300,322,1000,50`
 
-Where the:
-
-- values: are sent as integers.
-- separator: is sent as a character.
-
-This means that on other side, in the NodeJS app, if we want to split the string, we will compare the separator to a char symbol. When you’ll check the code, you’ll see what I mean.
+The Particle code will be saving the data in a buffer and change the LED brightness only after detecting the separator.
 
 # Schematic
 
