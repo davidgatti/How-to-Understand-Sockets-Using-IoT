@@ -1,4 +1,4 @@
-Encryption on hardware is bit tricky, so for now this example shows how to encrypt a connection between two NodeJS apps. The only major difference between a regular TCP connection is the private Key, and the public certificate that you have to set in to an option object.
+Encryption on hardware is bit tricky, so for now this example shows how to encrypt a connection between two NodeJS apps. The only major difference between a regular TCP connection is the private Key, and the public certificate that you’ll have to set in to an `option` object.
 
 # How to Create a Key and Certificate
 
