@@ -2,7 +2,9 @@ In this folders you'll find the most basic examples. They should be treated as t
 
 Folders:
 
-- NodeJS: has the code in JavaScript.
-- Particle: have code written in C++ specific to Particle itself.
+- **NodeJS**: has the code in JavaScript.
+- **Particle**: has code written in C++ specific to Particle itself.
 
-How can C++ be specific to just one device? Because in this case I'm using classes that are specific for Particle. For example the TCPClient is a implementation made by Particle. Depending on your device you’ll have to use something else, but still similar in its working.
+How can C++ be specific to just one device? Because in this case I'm using classes that are specific to Particle. For example the TCPClient is a implementation made by Particle. 
+
+Depending on your device you’ll have to use something else, but still similar in its working.
