@@ -105,7 +105,7 @@ Based on this example above you could add humidity to your protocol like this.
 
 In this case again, the `,` separates your set of data, where the `:` differentiate your data set. Remember, protocols need good documentation so other developers can make sense of them.
 
-# Types - meaning: be aware how you send your data.
+# Types - be aware how you send your data.
 
 Computers work in 1 and 0s, and this is a fact. There is no way for example to distinguish a compiled application from regular data. Everything is stored as a series of bits. Meaning even the data that is sent over the internet is in 1 and 0s.
 
