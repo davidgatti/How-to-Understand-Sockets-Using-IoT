@@ -51,7 +51,7 @@ function sendRandNumber(socket) {
     let rand = Math.floor(Math.random() * 255) + 1;
 
     // Send random number with a separator character at the end.
-    socket.write(rand.toString() + ":");
+    socket.write(rand.toString() + ",");
 
     // Display wht we sent.
     console.log(rand);
