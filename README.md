@@ -4,9 +4,9 @@
 
 I’m [David Gatti](https://twitter.com/dawidgatti), and my goal with this repository is to demystify Sockets. I’ll try to explain them in the simplest possible way that I can come up with.
 
-In this examples I’m going to use NodeJS, and Particle (any version will do) to show how hardware can talk with NodeJS, and vice versa. But make no mistake, this doesn’t mean the tools that I choose are the only way to go about this. This is what I personally know.
+In this examples I’m going to use [NodeJS](https://nodejs.org/en/), and [Particle](https://www.particle.io) (any version will do) to show how hardware can talk with NodeJS, and vice versa. But make no mistake, this doesn’t mean the tools that I choose are the only way to go about this. This is what I personally know.
 
-Any embedded device with network connectivity will work similarly, and any language with sockets support will also do.
+But any embedded device with network connectivity will work similarly, and any language with sockets support will also do.
 
 # The Repo Structure
 
@@ -45,17 +45,17 @@ Probably because people tend to use words that convey complexity, like:
 - I just send the right amount of **bytes**
 - I’m **implementing** this **protocol**
 
-Just by reading this few points you think - this is not for me. But Sockets are actually very straight forward. For example, to get a repose from a web server, you have to just send the following text.
+Just by reading this few points you might think - this is not for me. But Sockets are actually very straight forward. For example, to get a repose from a web server, you have to just send the following text.
 
 `GET / HTTP/1.1`
 
-This is it. The server will take this text, parse it and understand that you are making a:
+This is it. The server will take this text, parse it, and understand that you are making a:
 
 - **GET request**: you want something form the server
 - **/**: is the root address of the site. Another example would be to write `/contact` to get the contact page.
 - **HTTP/1.1**: tells the server which version of the HTTP you can understand.
 
-There isn’t much more to it. A printer will understand another header, similarly a DNS server will need something specific to its protocol, which is a fancy word for rules, and this rules are publicly available on-line.
+There isn’t much more to it. A printer will understand another header, similarly a DNS server will need something specific to its protocol (rules).
 
 Hard to believe? Use a telnet app an connect to your favorite site using this command (only insecure connection will be supported through port 80)
 
@@ -87,9 +87,11 @@ Another example would be to send an email by connecting straight to a SMTP serve
 - . *just a single dot to tell the server that we finished our message*
 - `QUIT`
 
+As you can see this isn't 🚀🔬.
+
 # How to Make Your Own Rules (protocol)
 
-Now that we have a better understanding of Sockets. You’ll need to design a common structure for communicating. Lets say you want to send to your NodeJS server the temperature of your house. Your stream of bytes could look like this:
+Now that we have a better understanding of protocals. You’ll need to design a common structure for communicating. Lets say you want to send to your NodeJS server the temperature of your house. Your stream of bytes could look like this:
 
 `45,40.1,50,90,100,102.5`
 
@@ -97,17 +99,17 @@ Where the `,` is the separator for each measurement. You can choose any characte
 
 As you can see from this example, there is no header, or optional data. You decide what goes in your protocol.
 
-Based on this example above you could add humidity to our protocol like this.
+Based on this example above you could add humidity to your protocol like this.
 
 `45:80,40:85,32.1:82,50:89`
 
-In this case again, the `,` separates your set of data, where the `:` differentiate your data set. Remember, protocols need good documentation so other developers can make sense of them. Otherwise others won't be able to tell what is what just by looking at the raw data.
+In this case again, the `,` separates your set of data, where the `:` differentiate your data set. Remember, protocols need good documentation so other developers can make sense of them.
 
 # Types - meaning: be aware how you send your data.
 
-Computers work in 1 and 0s, and this is a fact. There is no way for example to distinguish a compiled application with regular data. Everything is stored as a series of bits. Meaning even the data that is sent over the internet is in 1 and 0s.
+Computers work in 1 and 0s, and this is a fact. There is no way for example to distinguish a compiled application from regular data. Everything is stored as a series of bits. Meaning even the data that is sent over the internet is in 1 and 0s.
 
-You are probably asking, then why should I care about types. Because depending on your type your binary data will be different. For example: an integer of 1 will be 00000001, where a char of 1 in UTF8 is 31 which will become 00011111.
+You are probably asking, then why should I care about types. Because depending on your type, your binary data will be different. For example: an integer of 1 will be `00000001`, where a char of 1 in UTF8 is 31, which will become `00011111`.
 
 This means that at the other end of the connection, you need to know what are you getting. Lets say you want to make a simple comparison.
 
@@ -125,17 +127,17 @@ if(data == '1') {
 }
 ```
 
-Now char 1 is actually 31 and the comparison will work. In the [Example](https://github.com/davidgatti/IoT-Raw-Sockets-Examples/tree/master/Examples) folder you'll find simple code that explains how this works in practice.
+Now char 1 is actually 31 and the comparison will work. In the [Hardware2NodeJS example](https://github.com/davidgatti/IoT-Raw-Sockets-Examples/tree/master/Examples/Hardware2NodeJS) folder you'll find simple code that explains in practice the difference.
 
 # Which one: TCP or UDP?
 
-On the internet we use two protocols for sending data: TCP and UDP. You'll see that people write /IP at the end of the name. IP stands for (Internet Protocol), and in short, you can think of it as the address system of the internet. Meaning you can use TCP or UDP not only on the internet. TCP and UDP are the way the data is packaged, what address system are you going to use is up to you.
+On the internet the two most popular protocols for sending data are TCP and UDP. You'll see that people write /IP at the end of the name. IP stands for (Internet Protocol), and in short, you can think of it as the address system of the internet. Meaning you can use TCP or UDP not only on the internet. TCP and UDP are the way the data is packaged, what address system you'll use is up to you.
 
-Since TCP and UDP are protocols, by now you should know that this word means rules, and this two protocols are nothing more than rules explaining how to package data, so the other end witch also understands the same rules, can unpack the received information and vice versa.
+Since TCP and UDP are protocols, by now you should know that this word means rules, and this two protocols are nothing more than rules explaining how to package data, so the other end which also understands the same rules, can unpack the received information and vice versa.
 
 ### Difference
 
-- **TCP**: is a stream of data which will always arrive at the other end no matter what. Because the rules say, if some data will be lost during the transmission, resend them. This way you get high fidelity, "slower" speeds, and more data over all.
+- **TCP**: is a stream of data which will always arrive at the other end no matter what. Because the rules say, if some data will be lost during the transmission, resend it. This way you get high fidelity, "slower" speeds, and more data over all.
 - **UDP**: sends data as a standalone packet, because once the data is sent, there is no way to tell if it reached its destination. The rules here are: I'll send it, but I won't guarantee that you'll receive it. With this protocol you get faster speeds because you are not waisting time resending lost data, and also you are not sending back to the source the information needed to know if something was lost.
 
 ### Use cases
@@ -146,7 +148,7 @@ Of course there are formats that are more resilient and don't need 100% of the d
 
 ### When should I use UDP?
 
-This protocol is very useful when sending data from hardware products. Lets say we are collecting sensor data from many devices, and we use a cellular modem where we have to pay for each byte we send. In this case we should consider the following: is it worth it to use TCP and pay more for higher fidelity. Or can we accept some lost measurement but pay less for our data transfer?
+This protocol is very useful when sending data from hardware products. Lets say we are collecting sensor data from many devices, and we use a cellular modem where we have to pay for each byte we send. In this case we should consider the following: is it worth it to pay more for higher fidelity with TCP. Or can we accept some lost measurement but pay less for our data transfer?
 
 Normally I would default towards TCP, but if you have a good case against it, UDP will be your best next option.
 
