@@ -15,7 +15,6 @@ But any embedded device with network connectivity will work similarly, and any l
    - **NodeJS2Hardware**: using NodeJS to control a LED
    - **Hardware2NodeJS**: read values from an analog PIN, and stream the data to NodeJS. This examples also explains how to send data as chars or binary.
    - **BetterTCPStreamHandling**: NodeJS buffers the received data until the END character is detected.
-   - **BigMessageParticle2NodeJS**: this example will show you the learning process of a human 😁 trying to understand how to use something for the first time.
 
 # The End Goal
 
