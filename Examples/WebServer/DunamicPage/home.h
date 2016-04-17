@@ -1,0 +1,16 @@
+const char* home =
+"<html>"
+"<head>"
+    "<title>Particle Web Server</title>"
+"</head>"
+"<body>"
+    "<ul>"
+        "<li><a href='/'>Home</a></li>"
+        "<li><a href='/more'>More</a></li>"
+        "<li><a href='/autor'>Autor</a></li>"
+    "</ul>"
+    "<h1>Hello World</h1>"
+    "<p>I'm a simple Particle server.</p>"
+"</body>"
+"</html>"
+;

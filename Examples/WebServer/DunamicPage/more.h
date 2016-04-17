@@ -1,0 +1,16 @@
+const char* more =
+"<html>"
+"<head>"
+    "<title>Particle Web Server - More</title>"
+"</head>"
+"<body>"
+    "<ul>"
+        "<li><a href='/'>Home</a></li>"
+        "<li><a href='/more'>More</a></li>"
+        "<li><a href='/autor'>Autor</a></li>"
+    "</ul>"
+    "<h1>More Info</h1>"
+    "<p>This project shows how simple it is to make web server for Particle.</p>"
+"</body>"
+"</html>"
+;
