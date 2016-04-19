@@ -24,47 +24,55 @@ void setup() {
 
 void loop() {
 
-    clientWww = serverWww.available();
-    int position = 0;
-    int canI = 0;
+    if (clientWww.connected()) {
 
-    // Print out what the client (web broser) sent us.
-    while(clientWww.available()) {
+        int position = 0;
+        int canI = 0;
 
-        char c = clientWww.read();
-        char url[200];
+        // echo all available bytes back to the client
+        while (clientWww.available()) {
 
-        // Detect space
-        if(c == 32) {
+            char c = clientWww.read();
+            char url[200];
 
-            canI = !canI;
+            // Detect space
+            if(c == 32) {
 
-        }
+                canI = !canI;
 
-        // Save only data in betwen spaces
-        if(canI) {
+            }
 
-            // Discard spaces
-            if(c != 32) {
+            // Save only data in betwen spaces
+            if(canI) {
 
-                url[position++] = c;
+                // Discard spaces
+                if(c != 32) {
+
+                    url[position++] = c;
+
+                }
+
+            }
+
+            // Detect end of the line
+            if(c == 10) {
+
+                // Null terminate our array
+                url[position + 1] = 0;
+
+                resposne(url);
+
+                // Discard the rest of the header
+                clientWww.flush();
 
             }
 
         }
 
-        // Detect end of the line
-        if(c == 10) {
+    } else {
 
-            // Null terminate our array
-            url[position + 1] = 0;
-
-            resposne(url);
-
-            // Discard the rest of the header
-            clientWww.flush();
-
-        }
+        // if no client is yet connected, check for a new connection
+        clientWww = serverWww.available();
 
     }
 
