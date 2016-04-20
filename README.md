@@ -15,6 +15,9 @@ But any embedded device with network connectivity will work similarly, and any l
    - **NodeJS2Hardware**: using NodeJS to control a LED
    - **Hardware2NodeJS**: read values from an analog PIN, and stream the data to NodeJS. This examples also explains how to send data as chars or binary.
    - **BetterTCPStreamHandling**: NodeJS buffers the received data until the END character is detected.
+   - **WebServer**:
+   - **StaticPage**: Learn how to turn your Particle in to a web server.
+   - **DunamicPages**: Learn how to turn your Particle in to a web server with multiple pages.
 
 # The End Goal
 
