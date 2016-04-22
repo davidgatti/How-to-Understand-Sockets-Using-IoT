@@ -7,7 +7,7 @@ const char* error =
     "<ul>"
         "<li><a href='/'>Home</a></li>"
         "<li><a href='/more'>More</a></li>"
-        "<li><a href='/author'>Author</a></li>"
+        "<li><a href='/autor'>Autor</a></li>"
     "</ul>"
     "<h1>Error 404</h1>"
     "<p>No such page. Go back <a href='/'>home</a>.</p>"

@@ -17,7 +17,8 @@ But any embedded device with network connectivity will work similarly, and any l
    - **BetterTCPStreamHandling**: NodeJS buffers the received data until the END character is detected.
    - **WebServer**:
       - **StaticPage**: Learn how to turn your Particle in to a web server.
-      - **DunamicPages**: Learn how to turn your Particle in to a web server with multiple pages.
+      - **DynamicPages**: Learn how to turn your Particle in to a web server with multiple pages.
+      - **DynamicContent**: Learn how to turn your Particle in to a web server with dynamic content.
 
 # The End Goal
 
@@ -157,6 +158,13 @@ Normally I would default towards TCP, but if you have a good case against it, UD
 # To sum it all up
 
 I hope this repository helped you better understand what sockets are. If something was unclear, hit me up on [Twitter](https://twitter.com/dawidgatti), I’ll try to fix the unclear part of this project.
+
+# Thank you
+
+In this section I want to thank all the good people that helped me during this project
+
+- [Tomasz Wątorowski](http://mightydevices.com): for helping me understand C even better.
+- [Kenneth Lim](https://github.com/kennethlimcp): for helping me proof what I wrote.
 
 # My other projects
 
