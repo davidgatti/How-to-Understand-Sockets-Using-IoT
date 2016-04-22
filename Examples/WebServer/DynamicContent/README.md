@@ -16,4 +16,4 @@ The inefficiency of the code in this example is on purpose to make the code easi
 
 # What this project is not
 
-The idea of this repository is to teach about sockets and protocols by showing that this two technologies are easier to understand then you might think. This example is not a full fledged web server. It supports just a tiny fragment of the HTTP protocol. If you would like to have a full web server, check out the [Webduino](https://github.com/sirleech/Webduino)] project.
+The idea of this repository is to teach about sockets and protocols by showing that this two technologies are easier to understand then you might think. This example is not a full fledged web server. It supports just a tiny fragment of the HTTP protocol. If you would like to have a full web server, check out the [Webduino](https://github.com/sirleech/Webduino) project.
