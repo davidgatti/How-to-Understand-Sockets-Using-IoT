@@ -19,10 +19,10 @@ void loop() {
 
     if (clientWww.connected()) {
 
-        // Inform the browser that evrything is ok
+        // Inform the browser that everything is ok
         clientWww.write("HTTP/1.1 200 OK\n\r");
 
-        // Tell the encodign that we are using
+        // Tell the encoding that we are using
         clientWww.write("Content-Type: text/html; charset=ascii\n\r");
 
         // Separate the header from the body with one empty line

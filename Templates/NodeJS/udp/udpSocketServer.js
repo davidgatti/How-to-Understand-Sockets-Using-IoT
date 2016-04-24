@@ -35,12 +35,12 @@ server.on('close', function(message, remote) {
 
 });
 
-// When an erro occurse, show it.
+// When an error occurres, show it.
 server.on('error', function(error) {
 
 	console.error(error);
 
-	// Close the connection after the errors accured.
+	// Close the connection after the error occurred.
 	server.destroy();
 
 });

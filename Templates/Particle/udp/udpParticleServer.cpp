@@ -12,7 +12,7 @@ void setup() {
 
 void loop() {
 
-    // First we need to parse before we can check avaiability.
+    // First we need to parse before we can check availability.
     Udp.parsePacket();
 
     // While there is data, we display it.

@@ -33,7 +33,7 @@ client.on("data", function(data) {
 		data.toString().replace(/(\n)/gm,""),
 		data.length);
 
-	// Close the connection after recivign the message
+	// Close the connection after receiving the message
 	client.end();
 
 });
@@ -44,12 +44,12 @@ client.on('close', function() {
 
 });
 
-// When an erro occurse, show it.
+// When an error ocoures, show it.
 client.on('error', function(error) {
 
 	console.error(error);
 
-	// Close the connection after the errors accured.
+	// Close the connection after the error occurred.
 	client.destroy();
 
 });

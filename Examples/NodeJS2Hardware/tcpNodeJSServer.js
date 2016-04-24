@@ -7,7 +7,7 @@ const HOST = '192.168.1.100';
 
 let server = net.createServer(function(socket) {
 
-    console.log("Conected");
+    console.log("Connected");
 
     let timer = setInterval(function() {
 
@@ -53,7 +53,7 @@ function sendRandNumber(socket) {
     // Send random number with a separator character at the end.
     socket.write(rand.toString() + ",");
 
-    // Display wht we sent.
+    // Display what we sent.
     console.log(rand);
 
 }

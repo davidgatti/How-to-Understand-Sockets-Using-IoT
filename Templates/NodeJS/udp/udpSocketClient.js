@@ -25,19 +25,19 @@ client.on('message', function(data) {
 
 });
 
-// Informa when the socket connection is beeing closed.
+// Informs when the socket connection is being closed.
 client.on('close', function() {
 
 	console.log('Connection closed');
 
 });
 
-// When an erro occurse, show it.
+// When an error occurs, show it.
 client.on('error', function(error) {
 
 	console.error(error);
 
-	// Close the connection after the errors accured.
+	// Close the connection after the error occured.
 	client.destroy();
 
 });

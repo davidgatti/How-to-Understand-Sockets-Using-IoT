@@ -36,7 +36,7 @@ void loop() {
     // Send the separator
     client.print(',');
 
-    // Disaply in the termianl what did we send.
+    // Display in the terminal what did we send.
     Serial.println(val);
 
     delay(100);

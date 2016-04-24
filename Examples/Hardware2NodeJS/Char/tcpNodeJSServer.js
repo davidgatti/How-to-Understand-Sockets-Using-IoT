@@ -7,7 +7,7 @@ const HOST = '192.168.1.100';
 
 let server = net.createServer(function(socket) {
 
-    console.log("Conected");
+    console.log("Connected");
 
     socket.on('data', function(data) {
 

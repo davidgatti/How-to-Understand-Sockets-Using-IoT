@@ -10,7 +10,7 @@ let server = net.createServer(function(socket) {
 	// Send a friendly message
 	socket.write("I am the server sending you a message.");
 
-	// If we recive some data, lets display it.
+	// If we receive some data, lets display it.
 	socket.on('data', function(data) {
 
 		console.log('Received: %s [it is %d bytes long]', data, data.length);

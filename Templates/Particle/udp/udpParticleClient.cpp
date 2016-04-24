@@ -7,10 +7,10 @@ int port = 1337;
 
 void setup() {
 
-    // Set the port whis to use for contactign us back
+    // Set the port which to use for contacting us back
     Udp.begin(8888);
 
-    // Sedn the message to the server
+    // Send the message to the server
     if (Udp.sendPacket(buffer, 39, remoteIP, port) < 0) {
 
         Particle.publish("Error");
@@ -21,7 +21,7 @@ void setup() {
 
 void loop() {
 
-    // First we need to parse before we can check avaiability.
+    // First we need to parse before we can check availability.
     Udp.parsePacket();
 
     // While there is data, we display it.

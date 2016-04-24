@@ -7,9 +7,9 @@ const HOST = '192.168.1.100';
 
 let server = net.createServer(function(socket) {
 
-    console.log("Conected");
+    console.log("Connected");
 
-    // Settign the socket Buffer to be in binary insted of the default UTF8
+    // Setting the socket Buffer to be in binary instead of the default UTF8
     socket.setEncoding('binary');
 
     socket.on('data', function(data) {
@@ -17,25 +17,25 @@ let server = net.createServer(function(socket) {
         // Create temporary array storage where we are going to save all the 1 and 0.
         let tmp = [];
 
-        // Loop thrue each caracter sicne there is no tellign if we get one single message
-        // or a bunch combined togheter.
+        // Loop thru each character since there is no telling if we get one single message
+        // or a bunch combined together.
         for (let c of data) {
 
-            // Only collecte the 1 and 0
+            // Only collect the 1 and 0
             if(c != ',') {
 
                 tmp.push(c);
 
             } else {
 
-                // if we reach a separatro character, then we know we have the full
+                // if we reach a separator character, then we know we have the full
                 // value.
                 if(tmp.length > 0) {
 
                     // Combine our array in to a single string
                     let rawInt = tmp.join('');
 
-                    // Sicne we know we converted ints in to binary from oru particle
+                    // Since we know we converted ints in to binary from our particle
                     // we can convert them back in to a number.
                     let integerData = parseInt(rawInt, 2);
 
@@ -51,7 +51,7 @@ let server = net.createServer(function(socket) {
 
         } // for
 
-        // If we get a single message, we can display it after we loopd over it.
+        // If we get a single message, we can display it after we loop over it.
         if(tmp.length > 0) {
 
             let rawInt = tmp.join('');

@@ -32,7 +32,7 @@ void loop() {
     char tmp[3];
     int charPosition = 0;
 
-    // While ther is data in the buffer, lets read it.
+    // While there is data in the buffer, lets read it.
     while(client.available()) {
 
         char c = client.read();
@@ -40,7 +40,7 @@ void loop() {
         // Check if we reached the end of the data
         if(c == ',') {
 
-            // use the acumulated value
+            // use the accumulated value
             pData(tmp);
 
             // Reset

@@ -16,7 +16,7 @@ let server = tls.createServer(options, function(socket) {
 	// Send a friendly message
 	socket.write("I am the server sending you a message.");
 
-	// Print the data that we recived
+	// Print the data that we received
 	socket.on('data', function(data) {
 
 		console.log('Received: %s [it is %d bytes long]',
@@ -41,12 +41,12 @@ server.listen(PORT, HOST, function() {
 
 });
 
-// When an erro occurse, show it.
+// When an error occurs, show it.
 server.on('error', function(error) {
 
 	console.error(error);
 
-	// Close the connection after the errors accured.
+	// Close the connection after the error occurred.
 	server.destroy();
 
 });

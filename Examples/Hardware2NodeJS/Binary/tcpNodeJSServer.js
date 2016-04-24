@@ -7,9 +7,9 @@ const HOST = '192.168.1.100';
 
 let server = net.createServer(function(socket) {
 
-    console.log("Conected");
+    console.log("Connected");
 
-    // Settign the socket Buffer to be in binary insted of the default UTF8
+    // Setting the socket Buffer to be in binary instead of the default UTF8
     socket.setEncoding('binary');
 
     socket.on('data', function(data) {
@@ -18,7 +18,7 @@ let server = net.createServer(function(socket) {
         if(data != ',') {
 
             // Converting binary data back to an integer, since we know that the
-            // data thtat we are sendign is in binayr.
+            // data that we are sending is in binary.
             let integerData = parseInt(data, 2);
 
             console.log('Received: %s [it is %d bytes long]', integerData, data.length);
