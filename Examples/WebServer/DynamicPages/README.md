@@ -1,4 +1,4 @@
-![Dynamic Page](https://github.com/davidgatti/IoT-Raw-Sockets-Examples/blob/assets/dynamicPage.png)
+![Dynamic Page](https://github.com/davidgatti/IoT-Raw-Sockets-Examples/blob/assets/dynamicPage.gif)
 
 This examples is the most advance version of the [StaticPage](https://github.com/davidgatti/IoT-Raw-Sockets-Examples/tree/master/Examples/WebServer/StaticPage). Here you'll see how to extract the URL that the browser would like to access. Will going to even support the page not found error 404.
 

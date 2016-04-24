@@ -1,4 +1,4 @@
-![DynamicContentParticle](https://raw.githubusercontent.com/davidgatti/IoT-Raw-Sockets-Examples/assets/dynamicContent.png)
+![DynamicContentParticle](https://raw.githubusercontent.com/davidgatti/IoT-Raw-Sockets-Examples/assets/dynamicContent.gif)
 
 This example is the next step from the [Dynamic Page](https://github.com/davidgatti/IoT-Raw-Sockets-Examples/tree/master/Examples/WebServer/DynamicPages) example. This time we not only dynamically load pages based on the URL. We also change the HTML content on the fly with custom data. Here we add the time/date, and the IP address of Particle. In addition to that in the header of the home page I added one line that tells the browser to refresh the page every second, which will update the time on each refresh.
 
