@@ -3,7 +3,7 @@
 // Loading pages
 #include "home.h"
 #include "more.h"
-#include "autor.h"
+#include "author.h"
 #include "error.h"
 
 TCPServer serverWww = TCPServer(80);
@@ -42,7 +42,7 @@ void loop() {
 
             }
 
-            // Save only data in betwen spaces
+            // Save only data in between spaces
             if(canI) {
 
                 // Discard spaces
@@ -60,7 +60,7 @@ void loop() {
                 // Null terminate our array
                 url[position + 1] = 0;
 
-                resposne(url);
+                response(url);
 
                 // Discard the rest of the header
                 clientWww.flush();
@@ -78,15 +78,15 @@ void loop() {
 
 }
 
-void resposne(char* url) {
+void response(char* url) {
 
     // default page is the error page
     const char* page = error;
 
-    // Get the lenght ou our URL and remove the null termination
+    // Get the length of our URL and remove the null termination
     int urlLen = strlen(url) - 1;
 
-    // HOME: check only for the length of the URL, sicne the home page
+    // HOME: check only for the length of the URL, since the home page
     // is represented by a forward slash /
     if(urlLen == 1) {
 
@@ -102,16 +102,16 @@ void resposne(char* url) {
     }
 
     // HOME: look for the word
-    if(memcmp(url, "/autor", 6) == 0) {
+    if(memcmp(url, "/author", 6) == 0) {
 
-        page = autor;
+        page = author;
 
     }
 
-    // Inform the browser that evrything is ok
+    // Inform the browser that everything is ok
     clientWww.write("HTTP/1.1 200 OK\n\r");
 
-    // Tell the encodign that we are using
+    // Tell the encoding that we are using
     clientWww.write("Content-Type: text/html; charset=ascii\n\r");
 
     // Separate the header from the body with one empty line

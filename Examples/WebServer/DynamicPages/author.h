@@ -1,7 +1,7 @@
-const char* autor =
+const char* author =
 "<html>"
 "<head>"
-    "<title>Particle Web Server - Autor</title>"
+    "<title>Particle Web Server - Author </title>"
 "</head>"
 "<body>"
     "<ul>"
