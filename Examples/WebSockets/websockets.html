@@ -1,0 +1,45 @@
+<html>
+<head>
+    
+    <title>WebSockets</title>
+
+    <script>
+
+    var exampleSocket = new WebSocket('ws://192.168.1.59');
+
+    exampleSocket.onopen = function (event) {
+        console.log("Open");
+    }
+
+    exampleSocket.onmessage = function (event) {
+        document.getElementById("value").innerHTML = event.data;
+    }
+
+    exampleSocket.onclose = function (event) {
+        console.log("Close");
+    }
+
+    exampleSocket.onerror = function (event) {
+        console.log("Error");
+    }
+
+    </script>
+
+    <style>
+    #value {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 200px;
+        text-align: center;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    </style>
+
+</head>
+<body>
+
+    <div id="value">0</div>
+
+</body>
+</html>
