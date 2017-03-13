@@ -109,7 +109,7 @@ Again, the comma separates your data, while the colon differentiates your data s
 
 Computers work in 1s and 0s, and this is a fact. There is no way for the example to distinguish a compiled application from regular data. Everything is stored as a series of bits. Meaning that even the data that is sent over the Internet is in 1s and 0s.
 
-You are probably asking, then why should I care about types. Because depending on your type, your binary data will be different. For example: an integer of `1` will be `00000001`, where a char of `1v in UTF8 is `31`, which will become `00011111`.
+You are probably asking, then why should I care about types. Because depending on your type, your binary data will be different. For example: an integer of `1` will be `00000001`, where a char of `1v in UTF8 is `31`HEX, which will become `00110001`.
 
 This means that, at the other end of the connection, you need to know what you're getting. Let's say you want to make a simple comparison.
 
@@ -117,13 +117,13 @@ This means that, at the other end of the connection, you need to know what you'r
         true
     }
 
-If you converted your data as if it were an integer, but you sent it as a char, then you'll compare int 31 to int 1. But if you know that you're sending a character, you can compare it with the right type:
+If you converted your data as if it were an integer, but you sent it as a char, then you'll compare int 49 to int 1. But if you know that you're sending a character, you can compare it with the right type:
 
     if(data == '1') {
         true
     }
 
-Now char 1 is actually 31, and the comparison will work. In the Hardware2NodeJS example folder, you'll find simple code that explains the difference in practice.
+Now char 1 is actually 49, and the comparison will work. In the Hardware2NodeJS example folder, you'll find simple code that explains the difference in practice.
 
 # Which one: TCP or UDP?
 
