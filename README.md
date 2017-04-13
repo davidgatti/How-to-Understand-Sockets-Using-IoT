@@ -32,7 +32,7 @@ Sockets are the foundation for all network connectivity. Every connected device 
 
 You could make an app that pretends to be a:
 
-- [Network printer](https://github.com/tojocky/node-printer
+- [Network printer](https://github.com/tojocky/node-printer)
 - [DNS server](https://www.npmjs.com/package/dnsd)
 - [FTP server](https://www.npmjs.com/package/ftpd)
 - [SMTP server](https://github.com/nodemailer/smtp-server)
