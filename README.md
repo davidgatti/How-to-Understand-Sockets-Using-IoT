@@ -2,11 +2,11 @@
 
 # The idea
 
-I’m [David Gatti](https://twitter.com/dawidgatti), and my goal with this repository is to demystify Sockets. I’ll try to explain them in the simplest possible way.
+I’m [David](https://david.gatti.pl), and my goal with this repository/article is to demystify Sockets by try to explain them in the simplest possible way.
 
 In these examples, I’m going to use [NodeJS](https://nodejs.org/en/) and [Particle](https://www.particle.io) (any version will do) to show how hardware can talk with NodeJS, and vice versa. But make no mistake, this doesn’t mean the tools that I choose are the only way to go about this. This is what I personally know.
 
-But any embedded device with network connectivity will work similarly, and any language with sockets support will also do.
+Any embedded device with network connectivity will work similarly, and any language with sockets support will also do.
 
 The Repo Structure
 
@@ -22,7 +22,7 @@ The Repo Structure
 
 # The End Goal
 
-I believe there is a large measure of mystery around network sockets. Many people have made them sound scary, and my goal is to prove that they aren’t that mysterious or complicated. I hope that in the end you are going to think about sockets as a simpler solution to a problem.
+I believe there is a large measure of mystery around sockets. Many people have made them sound scary over the years, and my goal is to prove that they aren’t that mysterious or complicated. I hope that in the end you are going to think about sockets as a simpler solution to a specific problem.
 
 Especially in embedded systems, where every byte counts.
 
@@ -32,10 +32,10 @@ Sockets are the foundation for all network connectivity. Every connected device 
 
 You could make an app that pretends to be a:
 
-- Network printer
-- DNS server
-- FTP server
-- SMTP server
+- [Network printer](https://github.com/tojocky/node-printer
+- [DNS server](https://www.npmjs.com/package/dnsd)
+- [FTP server](https://www.npmjs.com/package/ftpd)
+- [SMTP server](https://github.com/nodemailer/smtp-server)
 
 Why do people believe Sockets are complicated?
 
@@ -48,7 +48,7 @@ Probably because people tend to use words that convey complexity, like:
 
 Just by reading these few points you might think, This is not for me. But Sockets are actually very straightforward. For example, to get a response from a web server, you just need to send the following text:
 
-`GET/HTTP/1.1`
+`GET / HTTP/1.1`
 
 This is it. The server will take this text, parse it, and understand that you are making a:
 
@@ -89,13 +89,13 @@ Another example would be to send an email by connecting straight to a SMTP serve
 
 As you can see, this isn't 🚀🔬.
 
-# How to Make Your Own Rules (Protocol)
+# How to Make Your Own Rules (Protocol) ASCII
 
 Now that we have a better understanding of protocols, you’ll need to design a common structure for communication. Let's say you want to send the temperature of your house to your NodeJS server. Your stream of bytes could look like this:
 
 `45,40.1,50,90,100,102.5`
 
-The comma acts as the separator for each measurement. You can choose any character you want, but, just so you know, the comma will make your data compatible with the CSV (Comma Separated Values) format. Anyway, on the other end, you need some code that will check for the separator, and when that happens - you have your value.
+The comma acts as the separator for each measurement. You can choose any character you want, but, just so you know, the comma will make your data compatible with the CSV (Comma Separated Values) format. On the other end, you need some code that will check for the separator, and when that happens - you have your value.
 
 As you can see from this example, there is no header or optional data. You decide what goes in your protocol.
 
@@ -103,7 +103,9 @@ Based on the example above, you could add humidity to your protocol, like this:
 
 `45:80,40:85,32.1:82,50:89`
 
-Again, the comma separates your data, while the colon differentiates your data set. Remember, protocols need good documentation, so other developers can make sense of them.
+Again, the comma separates your data, while the colon differentiates your data set. Also: remember... protocols need good documentation, so other developers can make sense of the data that they'll have to manage.
+
+Another important thing is that his example talks about a ASCII protocall, to learn how a binary one works, you can read the following article that I wrote titled: [How-to-Deconstruct-Ping-with-C-and-NodeJS](https://github.com/davidgatti/How-to-Deconstruct-Ping-with-C-and-NodeJS).
 
 # Types - be aware of how you send your data.
 
@@ -113,17 +115,21 @@ You are probably asking, then why should I care about types. Because depending o
 
 This means that, at the other end of the connection, you need to know what you're getting. Let's say you want to make a simple comparison.
 
-    if(data == 1) {
-        true
-    }
+```javascript
+if(data == 1) {
+    true
+}
+```
 
-If you converted your data as if it were an integer, but you sent it as a char, then you'll compare int 31 to int 1. But if you know that you're sending a character, you can compare it with the right type:
+If you converted your data as if it were an integer, but you sent it as a char, then you'll compare int `31` to int `1`. But if you know that you're sending a character, you can compare it with the right type:
 
-    if(data == '1') {
-        true
-    }
+```javascript
+if(data == '1') {
+    true
+}
+```
 
-Now char 1 is actually 31, and the comparison will work. In the Hardware2NodeJS example folder, you'll find simple code that explains the difference in practice.
+Now char `1` is actually `31`, and the comparison will work. In the `Hardware2NodeJS` example folder, you'll find sample code that explains the difference in practice.
 
 # Which one: TCP or UDP?
 
