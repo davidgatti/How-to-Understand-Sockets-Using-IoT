@@ -111,7 +111,7 @@ Another important thing is that his example talks about a ASCII protocall, to le
 
 Computers work in 1s and 0s, and this is a fact. There is no way for the example to distinguish a compiled application from regular data. Everything is stored as a series of bits. Meaning that even the data that is sent over the Internet is in 1s and 0s.
 
-You are probably asking, then why should I care about types. Because depending on your type, your binary data will be different. For example: an integer of `1` will be `00000001`, where `31` will become `00011111`.
+You are probably asking, then why should I care about types. Because depending on your type, your binary data will be different. For example: an integer of `1` will be `00000001`, where an integer of `31` will become `00011111`.
 
 This means that, at the other end of the connection, you need to know what you're getting. Let's say you want to make a simple comparison.
 
